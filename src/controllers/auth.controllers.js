@@ -1,8 +1,13 @@
 const ad = require('../config/activeDiretory')
+require('dotenv').config()
+const domain = process.env.DOMAIN_CONTROLLER
 
 exports.user_authenticate = async (req, res)=>{
-    const { user, pass, domain } = req.body;
+    const { user, pass } = req.body;
     try{
+        // console.log(user)
+        // console.log(pass)
+        // console.log(domain)
         await ad.authenticate(domain + "\\" + user, pass, 
         function(err, auth){
             if (auth){
@@ -16,7 +21,8 @@ exports.user_authenticate = async (req, res)=>{
                 });
             };
         });
-        } catch(e){
-            return res.status(500).send({ message:"ERROR" + e })
-        }
+
+    } catch(e){
+        return res.status(500).send({ message:"ERROR" + e })
+    }
 };
