@@ -9,5 +9,6 @@ const config = {
 }
 
 const ad = new ActiveDirectory(config)
+console.log(ad)
 
 module.exports = ad;
