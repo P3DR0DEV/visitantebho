@@ -9,5 +9,9 @@ router.get('/api', (req, res)=>{
     });
 });
 
+router.get('/home', (req,res)=>{
+    return res.render('../views/home.ejs', { title: 'Home' })
+})
+
 
 module.exports = router;
