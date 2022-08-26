@@ -3,20 +3,20 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const pessoaSchema = new Schema({
-    nome:{
-        type: String,
-        required: true
+    "STAMP":{
+        type: String
     },
-    hostname:{
-        type: String,
-        required: true
+    "HOST":{
+        type: String
     },
-    cpf:{
-        type: String,
-        required: true
+    "NOME":{
+        type: String
+    },
+    "CPF":{
+        type: String
     }
 })
 
-const Visitante = mongoose.model('Visitante', pessoaSchema)
+const Visitante = mongoose.model('',pessoaSchema,'Dados')
 
 module.exports = Visitante
