@@ -14,9 +14,7 @@ exports.user_authenticate = async (req, res) => {
         if (!valid){
           return res.sendStatus(403)
         }
-        return res.status(200).json({
-          message: "Authenticated!"
-        });
+        return res.status(200).redirect('/home')
       }
       else {
         return res.status(401).send({

@@ -63,7 +63,10 @@ h3{
     margin: auto;
     margin-top: 10%;
     box-shadow: 2px 2px 1px 3px rgba(0, 0, 0, 0.212);
+    display: flex;
+    flex-direction: column;
 }
+
 
 .form>label{
     font-size: 24px;
@@ -145,7 +148,8 @@ h3{
     bottom: 10px;
 }
 .footer{
-    position: absolute;
-    right: 38%;
+    /* position: absolute; */
+    width: 100%;
+    text-align: center;
     bottom: 0px;
 }
