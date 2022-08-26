@@ -3,15 +3,14 @@
 <%- include('./partials/head.ejs')%>
 <body>
     <div class="resultado">
-        
-        <table class="table-result">
-            <tr>
-                <th>NOME</th>
-                <th>CPF</th>
-                <th>HOSTNAME</th>
-                <th>DATA</th>
-            </tr>
             <% if (visitante.length > 0) { %>
+            <table class="table-result">
+                <tr>
+                    <th>NOME</th>
+                    <th>CPF</th>
+                    <th>HOSTNAME</th>
+                    <th>DATA</th>
+                </tr>
                 <% visitante.forEach(visitanteExist => { %>
                     <tr>
                         <td><%= visitanteExist.NOME %></h3>
