@@ -2,7 +2,18 @@
 <html lang="pt-BR">
 <%- include('./partials/head.ejs')%>
 <body>
-
+    <div class="resultado">
+        <% if (visitante.length > 0) { %>
+            <% visitante.forEach(visitanteExist => { %>
+                <div>
+                    <h3 class="title"><%= visitanteExist.name %></h3>
+                    <p class="snippet"><%= visitanteExist.cpf %></p>
+                </div>
+            <% }) %>
+        <%} else { %>
+            <p>Não foi possivel encontrar o histórico de Pessoas </p>
+        <%}%>
+    </div>
     
     <%- include('./partials/footer.ejs') %> 
 </body>

@@ -1,4 +1,5 @@
 const express = require('express');
+const visitanteHome = require('../controllers/view.home');
 const router = express.Router();
 
 router.get('/api', (req, res)=>{
@@ -9,9 +10,7 @@ router.get('/api', (req, res)=>{
     });
 });
 
-router.get('/home', (req,res)=>{
-    return res.render('../views/home.ejs', { title: 'Home' })
-})
+router.get('/home', visitanteHome);
 
 
 module.exports = router;

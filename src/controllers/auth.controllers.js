@@ -1,5 +1,6 @@
 const ad = require('../config/activeDirectory.js')
 require('dotenv').config()
+const viewController = require('./view.home')
 const domain = process.env.DOMAIN
 const permissoes = [{ username:'150367' }, { username:'150176' }]
 
@@ -14,7 +15,7 @@ exports.user_authenticate = async (req, res) => {
         if (!valid){
           return res.sendStatus(403)
         }
-        return res.status(200).redirect('/home')
+        res.redirect('/home')
       }
       else {
         return res.status(401).send({
