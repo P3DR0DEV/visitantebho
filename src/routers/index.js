@@ -1,5 +1,5 @@
 const express = require('express');
-const visitanteHome = require('../controllers/view.home');
+const { visitanteHome , notAllowed}  = require('../controllers/view.home');
 const router = express.Router();
 
 router.get('/api', (req, res)=>{
@@ -12,5 +12,6 @@ router.get('/api', (req, res)=>{
 
 router.get('/home', visitanteHome);
 
+router.get('notAllowed', notAllowed)
 
 module.exports = router;

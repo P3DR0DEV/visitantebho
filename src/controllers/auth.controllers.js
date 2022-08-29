@@ -13,7 +13,7 @@ exports.user_authenticate = async (req, res) => {
       if (auth) {
         const valid = permissoes.find(allowedUsers => allowedUsers.username === user)
         if (!valid){
-          return res.sendStatus(403)
+          return res.status(403).redirect('/notAllowed')
         }
         res.redirect('/home')
       }

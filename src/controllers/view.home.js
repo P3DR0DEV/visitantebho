@@ -14,4 +14,12 @@ const visitanteHome = (req,res)=>{
      })
 }
 
-module.exports= visitanteHome
+const notAllowed = (req,res)=>{
+   res.render('../views/notAllowed',{
+      title: 'Not Allowed'
+   })
+}
+module.exports= { 
+   visitanteHome,
+   notAllowed
+}
