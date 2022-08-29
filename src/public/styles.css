@@ -143,6 +143,7 @@ h3{
     width: 80%;
     border: 1px solid black;
     border-collapse: collapse;
+    margin: auto;
 }
 th{
     border: 1px solid black;
