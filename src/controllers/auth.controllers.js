@@ -1,8 +1,7 @@
 const ad = require('../config/activeDirectory.js')
 require('dotenv').config()
-const viewController = require('./view.home')
 const domain = process.env.DOMAIN
-const permissoes = [{ username:'150367' }, { username:'150176' }]
+const permissoes = [{ username:'' }, { username:'' }]
 
 //Método para autenticar usuários
 exports.user_authenticate = async (req, res) => {
@@ -11,11 +10,14 @@ exports.user_authenticate = async (req, res) => {
     await ad.authenticate( domain + "\\" + user, pass,
     function (err, auth) {
       if (auth) {
+        // return res.status(200).json({
+          // message: "Authenticated!"
+        // });
         const valid = permissoes.find(allowedUsers => allowedUsers.username === user)
         if (!valid){
-          return res.status(403).redirect('/notAllowed')
+          return res.sendStatus(403)
         }
-        res.redirect('/home')
+        return res.sendStatus(200)
       }
       else {
         return res.status(401).send({
