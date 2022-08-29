@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<%- include('./partials/head.ejs')%>
+<body>
+    <div class="resultado">
+            <% if (visitante.length > 0) { %>
+            <table class="table-result">
+                <tr>
+                    <th>NOME</th>
+                    <th>CPF</th>
+                    <th>HOSTNAME</th>
+                    <th>DATA</th>
+                </tr>
+                <% visitante.forEach(visitanteExist => { %>
+                    <tr>
+                        <td><%= visitanteExist.NOME %></h3>
+                        <td><%= visitanteExist.CPF %></td>                           
+                        <td><%= visitanteExist.HOST %></td>
+                        <td><%= visitanteExist.STAMP.replace('BRT', '') %></td>
+                    </tr>
+                <% }) %>
+            <%} else { %>
+                <p>Não foi possivel encontrar o histórico de Pessoas </p>
+            <%}%>
+        </table>
+</div>
+    <%- include('./partials/footer.ejs') %> 
+</body>
+</html>
