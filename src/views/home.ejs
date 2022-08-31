@@ -7,17 +7,17 @@
             <% if (visitante.length > 0) { %>
             <table class="table-result">
                 <tr>
+                    <th>DATA/HORA</th>
                     <th>NOME</th>
                     <th>CPF</th>
                     <th>HOSTNAME</th>
-                    <th>DATA</th>
                 </tr>
                 <% visitante.forEach(visitanteExist => { %>
                     <tr>
+                        <td style="width: 300px;"><%= visitanteExist.STAMP.replace('BRT', '') %></td>
                         <td><%= visitanteExist.NOME %></h3>
                         <td><%= visitanteExist.CPF %></td>                           
                         <td><%= visitanteExist.HOST %></td>
-                        <td><%= visitanteExist.STAMP.replace('BRT', '') %></td>
                     </tr>
                 <% }) %>
             <%} else { %>
