@@ -1,6 +1,6 @@
 interface jwtGenTokens {
-  createAccessToken(username: string): string;
-  createRefreshToken(username: string): string;
+  createAccessToken<T>(data: T): string;
+  createRefreshToken<T>(data: T): string;
 };
 
 export { jwtGenTokens };

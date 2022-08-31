@@ -2,16 +2,25 @@ import { AbstractEntity } from "@/core/domain/AbstractEntity";
 import { Department, SystemPermission, SystemsAvailable } from "@/util/common.types";
 
 type UserProps = {
+  name: string;
+  lastname: string;
   username: string;
   refreshToken?: string;
   department: Department;
   permissions?: SystemPermission[];
 };
 class User extends AbstractEntity<UserProps> {
+  private domain = "@pme.local";
+
   constructor(props: UserProps, id?: string) {
     super(props, id);
 
+    this.username = props.username;
     this.permissions = (props.permissions) ? props.permissions : [];
+  };
+
+  private set username(username: string) {
+    this.props.username = `${username}${this.domain}`;
   };
 
   private set refreshToken(refreshToken: string) {
@@ -50,6 +59,18 @@ class User extends AbstractEntity<UserProps> {
       return this.props.permissions;
 
     return [];
+  };
+
+  public get name() {
+    return this.props.name;
+  };
+
+  public get lastname() {
+    return this.props.lastname;
+  };
+
+  public get fullname() {
+    return `${this.name} ${this.lastname}`;
   };
 
   public updateRefreshToken(refreshToken: string) {

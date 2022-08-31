@@ -1,10 +1,12 @@
-import { UserOutput } from "@/application/usecases/user/types/user.types";
-import { Department } from "@/util/common.types";
+import { UserInput, UserOutput } from "@/application/usecases/user/types/user.types";
+import { Department, SystemPermission } from "@/util/common.types";
 
 interface UserRepository {
-  register(input: { id: string, username: string, department: Department }): Promise<void>;
+  register(userId: string, input: UserInput): Promise<void>;
   findByUsername(username: string): Promise<UserOutput>;
-  updateRefreshToken(username: string, refreshToken: string): Promise<void>;
+  updateRefreshToken(userId: string, refreshToken: string): Promise<{ username: string, refreshToken: string }>;
+  updateDepartment(userId: string, newDepartment: Department): Promise<UserOutput>;
+  setPermission(userId: string, permission: SystemPermission): Promise<{ username: string, permission: SystemPermission }>;
 };
 
 export { UserRepository };
