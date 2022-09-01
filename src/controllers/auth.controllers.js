@@ -1,6 +1,7 @@
 const ad = require('../config/activeDirectory.js');
 require('dotenv').config();
 const domain = process.env.DOMAIN;
+const { genTokens } = require('../config/token/genNewToken')
 const permissoes = [{ username:'150367' }, { username:'150176' }];
 
 //Método para autenticar usuários
@@ -14,7 +15,9 @@ exports.user_authenticate = async (req, res) => {
         if (!valid){
           return res.status(403).redirect('/notAllowed')
         }
-        res.redirect('/home')
+        const token = genTokens({ user });
+        req.headers['Authorization'] = `Bearer ${token}`
+        
       }
       else {
         return res.status(401).send({
