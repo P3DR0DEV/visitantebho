@@ -5,12 +5,13 @@ function validUser(req, res, next) {
     try {
         //validar se existe auth dentro do header
         const Authorization = req.headers['Authorization']
-        if(!Authorization) throw new Error('User has not logged in.')
+        if(!Authorization) throw new Error('Header have not been declared')
         //validar se a strin do header auth começa com Bearer
-        if(Authorization[0] !== 'Bearer') throw new Error('Invalid Token')
-        // ai sim validar o token com o jwt.verify
         const token = Authorization.split(' ')[1]
-        verify(token, process.env.JWT_CREATE_ACCESS_TOKEN)
+        if(Authorization[0] !== 'Bearer') throw new Error('Invalid header type')
+        // ai sim validar o token com o jwt.verify
+        const user = verify(token, process.env.JWT_CREATE_ACCESS_TOKEN)
+        return user
         //salvar user na req
         //next  
     } catch (error) {
