@@ -2,9 +2,34 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config()
 
 const genTokens = (payload)=>{ 
-    return jwt.sign(payload, process.env.JWT_CREATE_ACCESS_TOKEN,{
+    return jwt.sign(payload, process.env.JWT_CREATE_ACCESS_TOKEN, {
         expiresIn: '7m'
+    });
+};
+
+const createRefreshToken = (payload)=>{
+    return jwt.sign(payload, process.env.JWT_CREATE_ACCESS_TOKEN, {
+        expiresIn: '7d'
+    });
+};
+
+const sendAccessToken = (req, res, accesstoken) =>{
+    res.send({
+        accesstoken,
+        user: req.body.user
     })
 }
 
-module.exports = { genTokens } 
+const sendRefreshToken = (res, token) =>{
+    res.cookie(refreshtoken, token, {
+        path: '/refresh_token',
+        httpOnly: true
+    });
+};
+
+module.exports = { 
+    genTokens,
+    createRefreshToken,
+    sendRefreshToken,
+    sendAccessToken
+} 
