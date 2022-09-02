@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config({ path: __dirname + '/.env' });
-
+const cookieParser = require('cookie-parser')
 const app = express();
 
 //view engine & middleware
@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.json({type: 'application/vnd.api+json'}));
+app.use(cookieParser())
 
 // => Rotas
 const index = require(__dirname+ '/routers/index')
