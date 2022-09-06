@@ -7,6 +7,7 @@ const {
   sendAccessToken,
   sendRefreshToken 
 } = require('../config/token/genNewToken')
+const validUser = require('../middlewares/validUser')
 const permissoes = [{ username:'150367' }, { username:'150176' }];
 
 //Método para autenticar usuários
@@ -20,9 +21,10 @@ exports.user_authenticate = async (req, res) => {
           return res.status(403).redirect('/notAllowed')
         }
         const accessToken = genTokens({ user });
-        const refreshToken = createRefreshToken({ user });
+        // const refreshToken = createRefreshToken({ user });
         sendAccessToken(req, res, accessToken);
-        sendRefreshToken(res, refreshToken) 
+        // sendRefreshToken(res, refreshToken) 
+        return res.redirect('/home')
       }
       else {
         return res.status(401).send({

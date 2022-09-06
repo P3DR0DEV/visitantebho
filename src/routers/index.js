@@ -11,7 +11,7 @@ router.get('/api', (req, res)=>{
     });
 });
 
-router.get('/home', validUser);
+router.get('/home', validUser, visitanteHome);
 
 router.get('/notAllowed', notAllowed)
 
