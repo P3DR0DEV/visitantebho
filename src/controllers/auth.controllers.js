@@ -4,11 +4,10 @@ const domain = process.env.DOMAIN;
 const { 
   genTokens,
   createRefreshToken,
-  sendAccessToken,
-  sendRefreshToken 
+  sendRefreshToken,
+  sendAccessToken
 } = require('../config/token/genNewToken')
 const permissoes = [{ username:'150367' }, { username:'150176' }];
-const { verify } = require("jsonwebtoken")
 
 //Método para autenticar usuários
 exports.user_authenticate = async (req, res) => {
@@ -21,16 +20,7 @@ exports.user_authenticate = async (req, res) => {
           return res.status(403).redirect('/notAllowed')
         }
         const accessToken = genTokens({ user });
-        const validToken = verify(accessToken, process.env.JWT_CREATE_ACCESS_TOKEN)
-
-
-        if(validToken){
-          res.redirect('/home', 200, validToken);
-        } else{
-          res.send({
-            message: "invalid Token"
-          })
-        }
+        const sendAccessToken = sendAccessToken(req, res, accessToken)
         // const refreshToken = createRefreshToken({ user });
         // sendRefreshToken(res, refreshToken) 
       }
