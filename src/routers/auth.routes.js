@@ -8,8 +8,6 @@ router.get('/login', (req, res)=>{
 });
 router.post('/logout',(req, res)=>{ 
     res.clearCookie('refreshtoken', { path:'/refresh_token' })
-    res.send({
-        message:'Logged out'
-    })
+    res.redirect('/')
 })
 module.exports = router;

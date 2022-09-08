@@ -171,3 +171,9 @@ th{
     text-align: center;
     bottom: 0px;
 }
+
+.btn-logout{
+    position: absolute;
+    right: 20px;
+    appearance: none;
+}

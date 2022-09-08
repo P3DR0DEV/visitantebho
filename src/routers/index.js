@@ -1,6 +1,5 @@
 const express = require('express');
 const { visitanteHome , notAllowed }  = require('../controllers/view.home');
-const { validUser } = require('../middlewares/validUser');
 const router = express.Router();
 
 router.get('/api', (req, res)=>{
@@ -11,7 +10,7 @@ router.get('/api', (req, res)=>{
     });
 });
 
-router.get('/home', validUser, visitanteHome);
+router.get('/home', visitanteHome);
 
 router.get('/notAllowed', notAllowed)
 

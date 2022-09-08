@@ -3,9 +3,6 @@
 <%- include('./partials/head.ejs')%>
 <body>
     <%- include('./partials/nav.ejs') %> 
-    <form action="api/ad/logout" method="post" class="btn-logout">
-        <button type="submit">Logout</button>
-    </form>
     <div class="resultado">
             <% if (visitante.length > 0) { %>
             <table class="table-result">

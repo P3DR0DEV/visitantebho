@@ -19,7 +19,6 @@ const sendAccessToken = (req, res, accesstoken) =>{
         user: req.body.user
     })
 }
-
 const sendRefreshToken = (res, token) =>{
     res.cookie(refreshtoken, token, {
         path: '/refresh_token',
