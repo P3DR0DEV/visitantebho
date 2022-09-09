@@ -1,7 +1,7 @@
 const Visitante = require('../model/visitante');
 const { verify }= require('jsonwebtoken')
 
-const visitanteHome = (req,res, accessToken)=>{
+const visitanteHome = (req,res)=>{
    verify(req.token, process.env.JWT_CREATE_ACCESS_TOKEN, (err, data)=>{
       if (err){
          console.log(err)
