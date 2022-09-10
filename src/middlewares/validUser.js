@@ -8,8 +8,11 @@ function validUser(req, res, next) {
         if(!Authorization) throw new Error('Header have not been declared')
 
         const token = Authorization.split(' ')[1]
-        const { userId } = verify(token, process.env.JWT_CREATE_ACCESS_TOKEN);
-        return userId
+        const user = verify(token, process.env.JWT_CREATE_ACCESS_TOKEN);
+        if(!user) throw new Error('Invalid token')
+        else{
+            next()
+        }
     } catch (error) {
         console.log(error)
     }

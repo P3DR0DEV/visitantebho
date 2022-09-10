@@ -21,7 +21,7 @@ exports.user_authenticate = async (req, res) => {
         }
         const accessToken = genTokens({ user });
         const refreshToken = createRefreshToken({ user });
-        localStorage.setItem(refreshToken);
+        // localStorage.setItem('refresh_token', refreshToken);
         sendRefreshToken(res, refreshToken); 
         sendAccessToken(res, req, accessToken);
       }

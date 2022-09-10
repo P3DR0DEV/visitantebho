@@ -4,8 +4,6 @@ require('dotenv').config()
 const genTokens = (payload)=>{ 
     return jwt.sign(payload, process.env.JWT_CREATE_ACCESS_TOKEN, {
         expiresIn: '7m'
-    }, (err, token)=>{
-        res.json({ token })
     });
 };
 
@@ -15,7 +13,7 @@ const createRefreshToken = (payload)=>{
     });
 };
 
-const sendAccessToken = (req, res, accesstoken) =>{
+const sendAccessToken = (res, req, accesstoken) =>{
     res.send({
         accesstoken,
         user: req.body.user
