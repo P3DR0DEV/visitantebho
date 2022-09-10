@@ -20,9 +20,10 @@ exports.user_authenticate = async (req, res) => {
           return res.status(403).redirect('/notAllowed')
         }
         const accessToken = genTokens({ user });
-        const sendToken = sendAccessToken(req, res, accessToken)
         const refreshToken = createRefreshToken({ user });
-        sendRefreshToken(res, refreshToken) 
+        localStorage.setItem(refreshToken);
+        sendRefreshToken(res, refreshToken); 
+        sendAccessToken(res, req, accessToken);
       }
       else {
         return res.status(401).send({

@@ -1,14 +1,15 @@
+const { verify } = require('jsonwebtoken')
+
 require('dotenv').config()
 
 function validUser(req, res, next) {
     try {
-        const Authorization = req.headers['Authorization']
+        const Authorization = req.headers['authorization']
         if(!Authorization) throw new Error('Header have not been declared')
 
-        const bearerToken = Authorization.split(' ')[1]
-        
-        req.token = bearerToken
-        next()
+        const token = Authorization.split(' ')[1]
+        const { userId } = verify(token, process.env.JWT_CREATE_ACCESS_TOKEN);
+        return userId
     } catch (error) {
         console.log(error)
     }
