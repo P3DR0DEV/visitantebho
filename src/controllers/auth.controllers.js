@@ -21,8 +21,8 @@ exports.user_authenticate = async (req, res) => {
         }
         const accessToken = genTokens({ user });
         const sendToken = sendAccessToken(req, res, accessToken)
-        // const refreshToken = createRefreshToken({ user });
-        // sendRefreshToken(res, refreshToken) 
+        const refreshToken = createRefreshToken({ user });
+        sendRefreshToken(res, refreshToken) 
       }
       else {
         return res.status(401).send({

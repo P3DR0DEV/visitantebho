@@ -22,9 +22,9 @@ const sendAccessToken = (req, res, accesstoken) =>{
     })
 }
 const sendRefreshToken = (res, token) =>{
-    res.cookie(refreshtoken, token, {
-        path: '/refresh_token',
-        httpOnly: true
+    res.cookie('refreshtoken', token, {
+        httpOnly: true,
+        path: '/refresh_token'
     });
 };
 
@@ -33,4 +33,4 @@ module.exports = {
     createRefreshToken,
     sendRefreshToken,
     sendAccessToken
-} 
+};
