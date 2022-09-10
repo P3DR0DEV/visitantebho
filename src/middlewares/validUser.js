@@ -10,9 +10,7 @@ function validUser(req, res, next) {
         const token = Authorization.split(' ')[1]
         const user = verify(token, process.env.JWT_CREATE_ACCESS_TOKEN);
         if(!user) throw new Error('Invalid token')
-        else{
-            next()
-        }
+        next()
     } catch (error) {
         console.log(error)
     }

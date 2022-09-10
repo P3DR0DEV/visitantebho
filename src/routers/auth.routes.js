@@ -1,4 +1,5 @@
-const router = require('express')();
+const express = require('express');
+const router = express.Router();
 const authController = require('../controllers/auth.controllers');
 // => Definindo as rotas de autenticação
 
