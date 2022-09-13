@@ -1,7 +1,7 @@
-<a href="#funcionamento">Funcionamento</a>
-<a href="#como-rodar">Como Rodar</a>
-<a href="#controller">Controllers</a>
-<a href="#todo">TODO</a>
+- ✔️ <a href="#funcionamento">Funcionamento</a> <br>
+- 🤔 <a href="#como-rodar">Como Rodar</a> <br>
+- ⚙️ <a href="#controller">Controllers</a> <br>
+- 📝 <a href="#todo">TODO</a> <br>
 
 ## Funcionamento
 Este projeto foi feito para manter um certo 'Guest Control' na escola onde trabalho, como funciona?
