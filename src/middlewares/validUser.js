@@ -4,10 +4,11 @@ require('dotenv').config()
 
 function validUser(req, res, next) {
     try {
-        if((req.session.user.user === '150367' && req.session.user.logado === true)){
-            next()
-        } else{
+        console.log(req.session.user)
+        if((!req.session.user.user && req.session.user.logado !== true)){
             res.redirect('/notAllowed')
+        } else{
+            next()
         }; 
         // const Authorization = req.headers['authorization']
         // if(!Authorization) throw new Error('Header have not been declared')

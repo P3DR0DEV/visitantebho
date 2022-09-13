@@ -19,8 +19,8 @@ exports.user_authenticate = async (req, res) => {
         if (!valid){
           return res.status(403).redirect('/notAllowed')
         }
-        req.session.user = { user, logado: true }
         console.log(req.session.user)
+        req.session.user = { user, logado: true }
         res.redirect('/home')
       }
       else {
