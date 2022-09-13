@@ -17,7 +17,7 @@ Exemplo:
 
 Na controller de autenticação, eu precisei setar na mão quais usuários poderão utilizar dos serviços, pois a partir do momento em que a conexão é feita, qualquer pessoa autenticada no AD tem acesso ao serviço, por motivos de LGPD, isso não é recomendável, então fiz um Array de permissões onde os users, que tiverem dentro desse Array possam ter esse acesso.
 ```
- const permissoes = [{ username:'150367' }, { username:'150176' }]; 
+ const permissoes = [{ username: 'User Permitido do dominio' }, { username: 'User Permitido do dominio' }]; 
 
 ```
 Para iniciar o servidor utilize:
