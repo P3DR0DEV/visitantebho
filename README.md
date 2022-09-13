@@ -1,3 +1,8 @@
+<a href="#funcionamento">Funcionamento</a>
+<a href="#como-rodar">Como Rodar</a>
+<a href="#controller">Controllers</a>
+<a href="#todo">TODO</a>
+
 ## Funcionamento
 Este projeto foi feito para manter um certo 'Guest Control' na escola onde trabalho, como funciona?
 Ao entrar com um login autenticado de 'Visitante' nas Máquinas da escola, roda um script onde o Usuário tem que forcener informações como: CPF e Nome, esse script envia para um banco de dados a Hora, o Hostname da Máquina e as informações inseridas pelo Usuário.
