@@ -1,12 +1,6 @@
 const ad = require('../config/activeDirectory.js');
 require('dotenv').config();
 const domain = process.env.DOMAIN;
-const { 
-  genTokens,
-  createRefreshToken,
-  sendRefreshToken,
-  sendAccessToken
-} = require('../config/token/genNewToken')
 const permissoes = [{ username:'150367' }, { username:'150176' }];
 
 //Método para autenticar usuários
