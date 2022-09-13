@@ -33,3 +33,5 @@ Para iniciar o servidor utilize:
 - Separar o Front do Backend;
 - Adicionar uma forma de filtrar pesquisas entre Datas/Hostname/Nomes;
 - Adicionar um Log de conexões;
+- Adicionar um db com users permitidos;
+- Adicionar uma forma de Cadastro de novos Users permitidos;
