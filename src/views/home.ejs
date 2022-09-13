@@ -7,7 +7,7 @@
         <button type="submit" title="Logout"><img src="logoutimg.png" alt="logout" class="img"></button>
     </form>
     <div class="resultado">
-            <% if (visitante.length > 0) { %>
+        <% if (visitante.length > 0) { %>
             <table class="table-result">
                 <tr>
                     <th>DATA/HORA</th>
@@ -19,15 +19,15 @@
                     <tr>
                         <td style="width: 300px; text-align: center;"><%= visitanteExist.STAMP.replace('BRT', '').replace('at', '') %></td>
                         <td><%= visitanteExist.NOME %></h3>
-                        <td style="text-align: right;"><%= visitanteExist.CPF %></td>                           
-                        <td style="text-align: right;"><%= visitanteExist.HOST %></td>
-                    </tr>
-                <% }) %>
-            <%} else { %>
-                <p>Não foi possivel encontrar o histórico de Pessoas </p>
-            <%}%>
-        </table>
-</div>
-    <%- include('./partials/footer.ejs') %> 
-</body>
-</html>
+                            <td style="text-align: right;"><%= visitanteExist.CPF %></td>                           
+                            <td style="text-align: right;"><%= visitanteExist.HOST %></td>
+                        </tr>
+                        <% }) %>
+                        <%} else { %>
+                            <p>Não foi possivel encontrar o histórico de Pessoas </p>
+                            <%}%>
+                        </table>
+                    </div>
+                    <%- include('./partials/footer.ejs') %> 
+                </body>
+                </html>
