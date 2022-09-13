@@ -178,3 +178,19 @@ th{
     right: 20px;
     appearance: none;
 }
+
+.img{
+    width: 20px;
+}
+.form-submit{
+    position: absolute;
+    top: 120px;
+    right: 60px;
+    opacity: 50%;
+}
+
+.form-submit > button{
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.644);
+    cursor: pointer;
+}

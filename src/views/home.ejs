@@ -3,8 +3,8 @@
 <%- include('./partials/head.ejs')%>
 <body>
     <%- include('./partials/nav.ejs') %> 
-    <form action="api/ad/logout" method="post">
-        <button type="submit">Logout</button>
+    <form action="api/ad/logout" method="post" class="form-submit">
+        <button type="submit" title="Logout"><img src="logoutimg.png" alt="logout" class="img"></button>
     </form>
     <div class="resultado">
             <% if (visitante.length > 0) { %>
@@ -17,10 +17,10 @@
                 </tr>
                 <% visitante.forEach(visitanteExist => { %>
                     <tr>
-                        <td style="width: 300px;"><%= visitanteExist.STAMP.replace('BRT', '') %></td>
+                        <td style="width: 300px; text-align: center;"><%= visitanteExist.STAMP.replace('BRT', '').replace('at', '') %></td>
                         <td><%= visitanteExist.NOME %></h3>
-                        <td><%= visitanteExist.CPF %></td>                           
-                        <td><%= visitanteExist.HOST %></td>
+                        <td style="text-align: right;"><%= visitanteExist.CPF %></td>                           
+                        <td style="text-align: right;"><%= visitanteExist.HOST %></td>
                     </tr>
                 <% }) %>
             <%} else { %>
