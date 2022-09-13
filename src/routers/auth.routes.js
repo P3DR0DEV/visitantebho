@@ -8,7 +8,7 @@ router.get('/login', (req, res)=>{
     res.redirect('/')
 });
 router.post('/logout',(req, res)=>{ 
-    res.clearCookie('refreshtoken', { path:'/refresh_token' })
+    req.session.user = ''
     res.redirect('/')
 })
 module.exports = router;

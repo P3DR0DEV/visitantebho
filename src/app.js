@@ -1,9 +1,12 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-require('dotenv').config({ path: __dirname + '/.env' });
+require('dotenv').config();
 const cookieParser = require('cookie-parser')
 const app = express();
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
 
 //view engine & middleware
 app.set('view engine', 'ejs');
@@ -14,6 +17,20 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.json({type: 'application/vnd.api+json'}));
 app.use(cookieParser())
+
+const sessionOptions = session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7,
+        httpOnly: true
+    },
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI })
+});
+app.use(sessionOptions);
+app.use(flash());
+
 
 // => Rotas
 const index = require(__dirname+ '/routers/index')

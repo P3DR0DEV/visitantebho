@@ -19,11 +19,9 @@ exports.user_authenticate = async (req, res) => {
         if (!valid){
           return res.status(403).redirect('/notAllowed')
         }
-        const accessToken = genTokens({ user });
-        const refreshToken = createRefreshToken({ user });
-        // localStorage.setItem('refresh_token', refreshToken);
-        sendRefreshToken(res, refreshToken); 
-        sendAccessToken(res, req, accessToken);
+        req.session.user = { user, logado: true }
+        console.log(req.session.user)
+        res.redirect('/home')
       }
       else {
         return res.status(401).send({
