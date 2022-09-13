@@ -1,7 +1,7 @@
 const ad = require('../config/activeDirectory.js');
 require('dotenv').config();
 const domain = process.env.DOMAIN;
-const permissoes = [{ username:'150367' }, { username:'150367' }];
+const permissoes = [{ username:'' }, { username:'' }];
 
 //Método para autenticar usuários
 exports.user_authenticate = async (req, res) => {
