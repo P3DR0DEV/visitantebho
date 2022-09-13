@@ -1,7 +1,7 @@
 const Visitante = require('../model/visitante');
 
 const visitanteHome = (req,res)=>{
-   Visitante.find().sort({ createdAt: -1 })
+   Visitante.find().sort({ STAMP: -1 })
    .then(result =>{
       res.render('../views/home',{
          title: 'Home',
