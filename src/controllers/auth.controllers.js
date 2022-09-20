@@ -1,7 +1,7 @@
 const ad = require('../config/activeDirectory.js');
 require('dotenv').config();
 const domain = process.env.DOMAIN;
-const permissoes = [{ username:'' }, { username:'' }];
+const permissoes = [{ username:'150367' }, { username:'150176' }];
 
 //Método para autenticar usuários
 exports.user_authenticate = async (req, res) => {
@@ -18,10 +18,11 @@ exports.user_authenticate = async (req, res) => {
         res.redirect('/home')
       }
       else {
-        return res.status(401).send({
-          message: "Authentication failed!",
-          error: err
+        req.flash('errors', 'Authentication failed, Invalid Credentials.')
+        req.session.save(()=>{
+          return res.redirect('/')
         });
+        return;
       }
     })
   }catch (err) {

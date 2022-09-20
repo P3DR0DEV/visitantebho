@@ -3,6 +3,8 @@
 <%- include('./partials/head.ejs') %> 
 <body class="authPage">
     <%- include('./partials/nav.ejs') %> 
+    <%- include('./partials/messages.ejs')%>
+
     <form action="/api/ad/login" method="post" class="form">
         <div class="inputGroup">
             <label for="user" style="display: block;">Usuário</label>

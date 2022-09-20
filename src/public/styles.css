@@ -137,7 +137,17 @@ h3{
   display: none;
 }
 
-
+.row{
+    width: 75%;
+    background-color: #f8d7da;
+    padding: 10px;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 5px;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+    text-align: center;
+}
 /* Resultado */
 
 .table-result{

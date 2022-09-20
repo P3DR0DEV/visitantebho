@@ -7,6 +7,7 @@ const app = express();
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
+const {erros} = require('./middlewares/loginErros')
 
 //view engine & middleware
 app.set('view engine', 'ejs');
@@ -30,7 +31,7 @@ const sessionOptions = session({
 });
 app.use(sessionOptions);
 app.use(flash());
-
+app.use(erros)
 
 // => Rotas
 const index = require(__dirname+ '/routers/index')
