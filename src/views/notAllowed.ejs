@@ -3,9 +3,11 @@
 <%- include('./partials/head.ejs') %> 
 <body>
     <%- include('./partials/nav.ejs') %> 
-    <form action="api/ad/logout" method="post" class="form-submit">
-        <button type="submit" title="Logout"><img src="logoutimg.png" alt="logout" class="img"></button>
-    </form>
+    <% if(user) { %>
+        <form action="api/ad/logout" method="post" class="form-submit">
+            <button type="submit" title="Logout"><img src="logoutimg.png" alt="logout" class="img"></button>
+        </form>
+    <% } %>
     <div class="resultado">
         <h1>Claretiano - BHO</h1>
         <h3>Permission Denied!</h3>

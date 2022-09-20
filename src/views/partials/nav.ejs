@@ -2,7 +2,9 @@
     <div class="site-title">
         <h1><a href="/">Claretiano</a></h1>
     </div>
-    <ul>
-        <li><a href="/home">home</a></li>
-    </ul>
+    <% if(user) {%>
+        <ul>
+            <li><a href="/home">home</a></li>
+        </ul>
+    <% } %>
 </nav>
