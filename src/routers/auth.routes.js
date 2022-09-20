@@ -8,7 +8,7 @@ router.get('/login', (req, res)=>{
     res.redirect('/')
 });
 router.post('/logout',(req, res)=>{ 
-    req.session.user = ''
+    req.session.destroy()
     res.redirect('/')
 })
 module.exports = router;
