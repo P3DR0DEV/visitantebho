@@ -38,6 +38,7 @@ const index = require(__dirname+ '/routers/index')
 const auth = require(__dirname+ '/routers/auth.routes')
 
 app.get('/',(req, res)=>{
+    if(req.session.user) return res.redirect('/home')
     return res.render('authPage',{ title: 'Authentication' });
 });
 
